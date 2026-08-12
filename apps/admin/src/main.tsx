@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { CalendarDays, Clapperboard, FolderHeart, LogOut, PlayCircle, Plus, Trash2, Upload } from 'lucide-react';
 import { api, clearToken, getToken, setToken } from './api';
 import { EventItem, LiveItem, ProjectItem, VideoItem } from './types';
+import logo from './assets/logo.png';
 import './styles.css';
 
 type Section = 'events' | 'live' | 'videos' | 'projects';
@@ -46,7 +47,7 @@ function Login({ onLogin }: { onLogin: () => void }) {
   return (
     <main className="login-page">
       <form className="login-card" onSubmit={submit}>
-        <div className="brand-mark">FA</div>
+        <img className="brand-logo" src={logo} alt="Fome de Amor" />
         <h1>Admin Fome de Amor</h1>
         <p>Entre para atualizar agenda, cultos, vídeos e projetos.</p>
         <label>
@@ -149,7 +150,7 @@ function App() {
     <div className="app-shell">
       <aside className="sidebar">
         <div className="sidebar-brand">
-          <div className="brand-mark">FA</div>
+          <img className="brand-logo-small" src={logo} alt="Fome de Amor" />
           <div>
             <strong>Fome de Amor</strong>
             <span>Painel interno</span>
