@@ -1,0 +1,309 @@
+:root {
+  color: #232323;
+  background: #f7f7f7;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  display: grid;
+  gap: 16px;
+  max-width: 420px;
+  padding: 32px;
+  width: 100%;
+}
+
+.brand-mark {
+  align-items: center;
+  background: #e63229;
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  font-weight: 900;
+  height: 42px;
+  justify-content: center;
+  width: 42px;
+}
+
+.login-card h1,
+.topbar h1 {
+  margin: 0;
+}
+
+.login-card p,
+.topbar p,
+.row-card p,
+.sidebar-brand span {
+  color: #6d6d6d;
+  margin: 0;
+}
+
+.field,
+.login-card label {
+  display: grid;
+  gap: 7px;
+}
+
+.field span,
+.login-card label {
+  color: #333;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+input,
+textarea {
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  padding: 11px 12px;
+  width: 100%;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.primary-button {
+  align-items: center;
+  background: #e63229;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  display: inline-flex;
+  font-weight: 900;
+  gap: 8px;
+  justify-content: center;
+  padding: 12px 16px;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #232323;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-brand {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.sidebar-brand span {
+  display: block;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar nav button,
+.logout {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: #d8d8d8;
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  text-align: left;
+}
+
+.sidebar nav button.active {
+  background: #e63229;
+  color: #fff;
+}
+
+.logout {
+  margin-top: auto;
+}
+
+.content {
+  padding: 32px;
+}
+
+.topbar {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.row-card {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.row-card h2 {
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.row-actions button,
+.modal header button,
+.upload-button {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  color: #232323;
+  display: inline-flex;
+  font-weight: 800;
+  gap: 7px;
+  padding: 10px 12px;
+}
+
+.row-actions .danger {
+  color: #b8221b;
+}
+
+.empty,
+.error {
+  background: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.error {
+  background: #fff0ef;
+  border-color: #f1b7b3;
+  color: #b8221b;
+  margin-bottom: 16px;
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.45);
+  inset: 0;
+  overflow: auto;
+  padding: 32px;
+  position: fixed;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 24px;
+}
+
+.modal header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal h2 {
+  margin: 0;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.checkbox {
+  align-items: center;
+  display: flex;
+  font-weight: 800;
+  gap: 10px;
+}
+
+.checkbox input {
+  width: auto;
+}
+
+.upload-button {
+  justify-content: center;
+  position: relative;
+}
+
+.upload-button input {
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.asset-box {
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .row-card,
+  .topbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

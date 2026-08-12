@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Fome de Amor",
+    "slug": "fome-de-amor",
+    "scheme": "fomedeamor",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/icon.png",
+      "backgroundColor": "#E63229",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "br.org.fomedeamor.app",
+      "icon": "./assets/icon.png"
+    },
+    "android": {
+      "package": "br.org.fomedeamor.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#E63229"
+      }
+    },
+    "plugins": [
+      "expo-notifications"
+    ]
+  }
+}
