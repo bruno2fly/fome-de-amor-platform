@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import multer from 'multer';
-import path from 'node:path';
 import { createAnnouncement } from '../controllers/announcements.controller';
 import { createDocument } from '../controllers/documents.controller';
 import { createEvent, deleteEvent, listAdminEvents, updateEvent } from '../controllers/events.controller';
@@ -9,25 +8,13 @@ import { deleteLiveService, listLiveServices, patchLiveService, updateLiveServic
 import { createProject, deleteProject, listAdminProjects, updateProject } from '../controllers/projects.controller';
 import { uploadFile } from '../controllers/uploads.controller';
 import { createVideo, deleteVideo, listVideos, updateVideo } from '../controllers/videos.controller';
-import { env } from '../config/env';
 import { requireAuth } from '../middleware/auth';
 import { requireRole } from '../middleware/role';
 import { asyncHandler } from '../utils/async-handler';
 
 export const adminRoutes = Router();
 const upload = multer({
-  storage: multer.diskStorage({
-    destination: path.resolve(process.cwd(), env.uploadDir),
-    filename: (_req, file, callback) => {
-      const ext = path.extname(file.originalname);
-      const basename = path
-        .basename(file.originalname, ext)
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
-      callback(null, `${Date.now()}-${basename || 'arquivo'}${ext}`);
-    }
-  }),
+  storage: multer.memoryStorage(),
   limits: {
     fileSize: 200 * 1024 * 1024
   }

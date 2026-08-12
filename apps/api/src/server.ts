@@ -12,7 +12,9 @@ import { publicRoutes } from './routes/public.routes';
 
 const app = express();
 const uploadPath = path.resolve(process.cwd(), env.uploadDir);
-fs.mkdirSync(uploadPath, { recursive: true });
+if (env.storageDriver !== 'r2') {
+  fs.mkdirSync(uploadPath, { recursive: true });
+}
 
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
