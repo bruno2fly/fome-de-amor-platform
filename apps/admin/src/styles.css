@@ -23,6 +23,7 @@ button {
 }
 
 .login-page {
+  background: #e63229;
   display: grid;
   min-height: 100vh;
   place-items: center;
@@ -30,15 +31,42 @@ button {
 }
 
 .login-card {
-  background: #fff;
-  border: 1px solid #e7e7e7;
+  background: #181818;
+  border: 1px solid #2a2a2a;
   border-radius: 12px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   display: grid;
   gap: 16px;
   max-width: 420px;
   padding: 32px;
   width: 100%;
+}
+
+.login-card h1 {
+  color: #fff;
+}
+
+.login-card p {
+  color: #cfcfcf;
+}
+
+.login-card label {
+  color: #fff;
+}
+
+.login-card input {
+  background: #262626;
+  border: 1px solid #3a3a3a;
+  color: #fff;
+}
+
+.login-card input::placeholder {
+  color: #8a8a8a;
+}
+
+.login-card .primary-button {
+  background: #fff;
+  color: #181818;
 }
 
 .brand-mark {
@@ -54,7 +82,7 @@ button {
 }
 
 .brand-logo {
-  height: 56px;
+  height: 96px;
   object-fit: contain;
   width: auto;
 }
