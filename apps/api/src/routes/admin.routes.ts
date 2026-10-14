@@ -6,6 +6,7 @@ import { createEvent, deleteEvent, listAdminEvents, updateEvent } from '../contr
 import { createLeader, listLeaders } from '../controllers/leaders.controller';
 import { deleteLiveService, listLiveServices, patchLiveService, updateLiveService } from '../controllers/live.controller';
 import { createProject, deleteProject, listAdminProjects, updateProject } from '../controllers/projects.controller';
+import { listRundayRegistrations } from '../controllers/runday.controller';
 import { uploadFile } from '../controllers/uploads.controller';
 import { createVideo, deleteVideo, listVideos, updateVideo } from '../controllers/videos.controller';
 import { requireAuth } from '../middleware/auth';
@@ -42,3 +43,4 @@ adminRoutes.patch('/videos/:id', asyncHandler(updateVideo));
 adminRoutes.delete('/videos/:id', asyncHandler(deleteVideo));
 adminRoutes.post('/announcements', asyncHandler(createAnnouncement));
 adminRoutes.post('/documents', asyncHandler(createDocument));
+adminRoutes.get('/runday/registrations', asyncHandler(listRundayRegistrations));
