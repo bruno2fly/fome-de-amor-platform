@@ -1,19 +1,21 @@
 import React, { FormEvent, useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { CalendarDays, Clapperboard, FolderHeart, LogOut, PlayCircle, Plus, Trash2, Upload } from 'lucide-react';
+import { CalendarDays, Clapperboard, FolderHeart, LogOut, Medal, PlayCircle, Plus, Trash2, Upload } from 'lucide-react';
 import { api, clearToken, getToken, setToken } from './api';
 import { EventItem, LiveItem, ProjectItem, VideoItem } from './types';
+import { RundayDashboard } from './runday';
 import logo from './assets/logo.png';
 import './styles.css';
 
-type Section = 'events' | 'live' | 'videos' | 'projects';
+type Section = 'events' | 'live' | 'videos' | 'projects' | 'runday';
 type Editing = EventItem | LiveItem | VideoItem | ProjectItem | null;
 
 const sections: Array<{ id: Section; label: string; icon: React.ReactNode }> = [
   { id: 'events', label: 'Agenda', icon: <CalendarDays size={18} /> },
   { id: 'live', label: 'Cultos', icon: <PlayCircle size={18} /> },
   { id: 'videos', label: 'Vídeos', icon: <Clapperboard size={18} /> },
-  { id: 'projects', label: 'Projetos', icon: <FolderHeart size={18} /> }
+  { id: 'projects', label: 'Projetos', icon: <FolderHeart size={18} /> },
+  { id: 'runday', label: 'RUN DAY', icon: <Medal size={18} /> }
 ];
 
 function dateInputValue(value?: string | null) {
@@ -113,6 +115,7 @@ function App() {
   const title = useMemo(() => sections.find((item) => item.id === section)?.label ?? 'Admin', [section]);
 
   async function load() {
+    if (section === 'runday') return; // the RUN DAY dashboard loads its own data
     setLoading(true);
     setError('');
     try {
@@ -171,15 +174,27 @@ function App() {
         <header className="topbar">
           <div>
             <h1>{title}</h1>
-            <p>Crie, edite e exclua conteúdos exibidos no aplicativo.</p>
+            <p>
+              {section === 'runday'
+                ? 'Inscrições e pagamentos da 2ª Corrida Fome de Amor RUN DAY.'
+                : 'Crie, edite e exclua conteúdos exibidos no aplicativo.'}
+            </p>
           </div>
-          <button className="primary-button" onClick={() => { setEditing(null); setCreating(true); }}>
-            <Plus size={18} /> Novo
-          </button>
+          {section !== 'runday' ? (
+            <button className="primary-button" onClick={() => { setEditing(null); setCreating(true); }}>
+              <Plus size={18} /> Novo
+            </button>
+          ) : null}
         </header>
 
-        {error ? <div className="error">{error}</div> : null}
-        {loading ? <div className="empty">Carregando...</div> : <List section={section} items={items} onEdit={setEditing} onDelete={remove} />}
+        {section === 'runday' ? (
+          <RundayDashboard />
+        ) : (
+          <>
+            {error ? <div className="error">{error}</div> : null}
+            {loading ? <div className="empty">Carregando...</div> : <List section={section} items={items} onEdit={setEditing} onDelete={remove} />}
+          </>
+        )}
       </main>
 
       {(creating || editing) ? (
